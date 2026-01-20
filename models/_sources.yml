@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: bronze
+    catalog: stureplansgruppen_dev
+    schema: bronze
+    tables:
+      - name: trivec_combined
+      - name: sperling
+      - name: umarell
+      
+

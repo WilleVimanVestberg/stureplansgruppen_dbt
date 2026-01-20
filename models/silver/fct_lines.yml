@@ -1,0 +1,21 @@
+
+models:
+  - name: fct_lines
+    columns:
+      - name: line_PK
+        data_tests:
+          - unique
+          - not_null
+      
+      - name: product_FK # foreign Key till dim_products.product_PK
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_PK
+
+
+
+
+      

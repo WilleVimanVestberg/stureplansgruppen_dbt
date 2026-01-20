@@ -1,0 +1,22 @@
+{
+    "dbt.enableNewLineagePanel": true,
+    
+    // Stänger av automatiska förslag medan du skriver
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+
+    // Stänger av förslag från snippets
+    "editor.snippetSuggestions": "none",
+
+    // Stänger av förslag som dyker upp automatiskt på trigger-tecken
+    "editor.suggestOnTriggerCharacters": false,
+
+    // Stänger av inline suggestion (t.ex. från GitHub Copilot eller VS Code AI)
+    "editor.inlineSuggest.enabled": false,
+
+    // Stänger av parameter hints när du skriver funktionsanrop
+    "editor.parameterHints.enabled": false
+}

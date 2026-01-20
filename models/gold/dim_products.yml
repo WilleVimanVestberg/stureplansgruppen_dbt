@@ -1,0 +1,15 @@
+
+models:
+  - name: dim_products
+    columns:
+      - name: product_PK
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_lines')
+                field: product_FK
+            
+
+
