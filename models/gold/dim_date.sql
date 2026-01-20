@@ -1,7 +1,7 @@
 {{ config(
     materialized='table',
     file_format = 'delta',
-    schema = 'silver'
+    schema = 'gold'
 ) }}
 
 WITH date_range AS (

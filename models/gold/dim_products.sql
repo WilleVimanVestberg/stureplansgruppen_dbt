@@ -1,5 +1,7 @@
 {{ config(
-    materialized = "view"
+    materialized = "table",
+    file_format = 'delta',
+    schema = 'gold'
 ) }}
 
 WITH base AS (

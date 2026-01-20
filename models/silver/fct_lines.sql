@@ -1,5 +1,6 @@
 {{ config(
-    materialized = "view"
+    materialized = "view",
+    schema = 'gold'
 ) }}
 
 WITH exploded AS (
