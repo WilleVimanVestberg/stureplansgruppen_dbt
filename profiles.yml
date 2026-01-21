@@ -3,7 +3,7 @@ stureplansgruppen:
   outputs:
     dev:
       type: databricks
-      database: stureplansgruppen_dev # Catalog i Databricks
+      database: spgt # Catalog i Databricks
       schema: dbt_dev_sturep #Schema i Databricks
       host: "{{ env_var('dbtDatabricksConnectHOST') }}"
       http_path: "{{ env_var('dbtDatabricksConnectHTTP') }}" #http patch till compute
