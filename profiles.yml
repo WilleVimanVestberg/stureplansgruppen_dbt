@@ -1,0 +1,63 @@
+my_dbt_project:
+  outputs:
+    dev:
+      catalog: dbt-catalog
+      host: adb-1105215007729921.1.azuredatabricks.net
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp
+      schema: dbt-schema
+      threads: 4
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
+
+stureplansgruppen:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: stureplansgruppen_dev # Catalog i Databricks
+      schema: dbt_dev_sturep #Schema i Databricks
+      host: adb-1105215007729921.1.azuredatabricks.net #Compute Host i Databricks
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp #http patch till compute
+      token: "{{ env_var('DATABRICKS_TOKEN') }}" # Token genereras i DATABRICKS SETTINGS/developer/tokens och läggs i .env i dbt projektet
+      auth_type: databricks_cli
+      threads: 4
+
+sofie_spark_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: sofie_spark_dbt
+      schema: dbt-schema
+      host: adb-1105215007729921.1.azuredatabricks.net
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      auth_type: databricks_cli
+      threads: 4
+
+WilleSparkDbt:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: dev_catalog2
+      schema: dbt-schema
+      host: adb-1105215007729921.1.azuredatabricks.net
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      auth_type: databricks_cli
+      threads: 4
+
+projectAPI:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      database: trafiklabapi
+      schema: trafiklabapi
+      host: adb-1105215007729921.1.azuredatabricks.net
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp
+      token: '"{{ env_var(''DATABRICKS_TOKEN'') }}"'
+      auth_type: databricks_cli
+      threads: 4
