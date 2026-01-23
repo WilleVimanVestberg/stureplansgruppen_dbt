@@ -59,7 +59,7 @@ product_master AS (
 final AS (
     SELECT
         n.ticket_key,
-        n.order_key,
+        n.order_key AS order_FK,
         n.order_timestamp,
         n.ticket_update_number,
         n.order_date AS Date_FK,
