@@ -50,4 +50,3 @@ SELECT
     ) AS ticket_update_number
 FROM exploded
 
-

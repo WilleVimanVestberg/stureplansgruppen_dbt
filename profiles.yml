@@ -5,9 +5,9 @@ stureplansgruppen:
       type: databricks
       database: spgt # Catalog i Databricks
       schema: dbt_dev_sturep #Schema i Databricks
-      host: "{{ env_var('dbtDatabricksConnectHOST') }}"
-      http_path: "{{ env_var('dbtDatabricksConnectHTTP') }}" #http patch till compute
-      token: "{{ env_var('dbtDatabricksConnect') }}" # Token genereras i DATABRICKS SETTINGS/developer/tokens och läggs i .env i dbt projektet
+      host: adb-1105215007729921.1.azuredatabricks.net #Compute Host i Databricks
+      http_path: sql/protocolv1/o/1105215007729921/1010-134821-zoipnwp #http patch till compute
+      token: "{{ env_var('DATABRICKS_TOKEN') }}" # Token genereras i DATABRICKS SETTINGS/developer/tokens och läggs i .env i dbt projektet
+    
       auth_type: databricks_cli
       threads: 4
-

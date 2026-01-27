@@ -4,7 +4,7 @@
     schema = 'gold'
 ) }}
 
-WITH exploded AS (
+WITH selected AS (
     SELECT
         ticket_key AS ticket_FK,
         TicketNr,
@@ -29,20 +29,15 @@ WITH exploded AS (
         order_user_name,
         order_pc_nr,
         order_pc_name,
-        order.TableNr,
+        TableNr,
         order_ticket_key,
         order_ts, 
         coalesce(size(lines), 0) AS lines_count,
         coalesce(size(paymodes), 0) AS paymodes_count
-    FROM {{ ref('silver_orders') }} k
-    LATERAL VIEW explode_outer(k.Orders) exploded_orders AS order
-    -- OBS! INGEN rn-filter här
+    FROM {{ ref('silver_orders') }} 
 )
 
 SELECT
-    *,
-    ROW_NUMBER() OVER (
-        PARTITION BY ticket_key
-        ORDER BY order_ts
-    ) AS ticket_update_number
-FROM exploded
+    *
+FROM selected
+
