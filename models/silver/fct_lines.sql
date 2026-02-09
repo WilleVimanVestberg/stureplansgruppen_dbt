@@ -3,11 +3,14 @@
     schema = 'gold'
 ) }}
 
+
 WITH exploded AS (
     SELECT
         o.ticket_key,
         o.order_key,
         o.order_ts AS order_timestamp,
+        o.order_time,
+
         o.ticket_update_number,
         o.order_date,
         o.TotalPrice,
@@ -63,6 +66,7 @@ final AS (
         n.order_timestamp,
         n.ticket_update_number,
         n.order_date AS Date_FK,
+        n.order_time,
         n.TotalPrice,
         n.CenterNr,
         n.CenterName,
@@ -72,7 +76,13 @@ final AS (
         n.normalized_name AS ProductName,
         n.ProductType,
         m.master_productnr AS Product_FK,
-        n.GroupKey,
+        CASE 
+            WHEN LOWER(n.GroupName) LIKE '%vatten%' 
+                OR LOWER(n.GroupName) LIKE '%läsk%' 
+                OR LOWER(n.GroupName) LIKE '%alkoholfritt%' 
+            THEN 3300738201550857 
+            ELSE n.GroupKey
+        END AS GroupKey, 
         CASE 
             WHEN LOWER(n.GroupName) LIKE '%vatten%' 
                 OR LOWER(n.GroupName) LIKE '%läsk%' 
@@ -117,5 +127,3 @@ final AS (
 )
 
 SELECT * FROM final;
-
-

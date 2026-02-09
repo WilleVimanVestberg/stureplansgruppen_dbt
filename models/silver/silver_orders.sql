@@ -33,7 +33,7 @@ WITH exploded AS (
         order.PcName AS order_pc_name,
         order.TableNr,
         order.TicketKey AS order_ticket_key,
-        to_timestamp(concat(order.ActualDate, ' ', order.Time),'yyyyMMdd HH:mm:ss') AS order_ts,
+        to_timestamp(concat(order.Date, ' ', order.Time),'yyyyMMdd HH:mm:ss') AS order_ts,
         order.Lines AS lines,
         order.Paymodes AS paymodes
 
